@@ -14,9 +14,14 @@ const {
 } = require("../controllers/user.controller");
 
 const {
-    getPublicUsers,
-    followUser,
-    getPublicUser,
-    unfollowUser,
-    getFollowingUsers,
+  getPublicUsers,
+  followUser,
+  getPublicUser,
+  unfollowUser,
+  getFollowingUsers,
   } = require("../controllers/profile.controller");
+
+const {
+  addUserValidator,
+  addUserValidatorHandler,
+} = require("../middlewares/users/usersValidator");
