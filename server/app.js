@@ -7,6 +7,7 @@ const contextAuthRoutes = require("./routes/context-auth.route");
 const userRoutes = require("./routes/user.route");
 const postRoutes = require("./routes/post.route");
 const communityRoutes = require("./routes/community.route");
+const adminRoutes = require("./routes/admin.route");
 
 const app = express();
 
@@ -47,6 +48,7 @@ app.use("/auth", contextAuthRoutes);
 app.use("/users", userRoutes);
 app.use("/posts", postRoutes);
 app.use("/communities", communityRoutes);
+app.use("/admin", adminRoutes);
 
 process.on("SIGINT", async () => {
 try {
