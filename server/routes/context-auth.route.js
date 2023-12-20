@@ -12,3 +12,8 @@ const {
   blockContextAuthData,
   unblockContextAuthData,
 } = require("../controllers/auth.controller");
+
+const {
+    verifyEmailValidation,
+    verifyEmail,
+  } = require("../middlewares/users/verifyEmail");
