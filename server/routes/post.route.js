@@ -26,3 +26,9 @@ const {
 } = require("../middlewares/post/userInputValidator");
 
 const postConfirmation = require("../middlewares/post/postConfirmation");
+const fileUpload = require("../middlewares/post/fileUpload");
+const decodeToken = require("../middlewares/auth/decodeToken");
+
+const requireAuth = passport.authenticate("jwt", { session: false }, null);
+
+router.use(requireAuth, decodeToken);
