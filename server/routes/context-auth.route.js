@@ -23,3 +23,7 @@ const {
     verifyLogin,
     blockLogin,
 } = require("../middlewares/users/verifyLogin");
+
+const decodeToken = require("../middlewares/auth/decodeToken");
+
+const requireAuth = passport.authenticate("jwt", { session: false }, null);
