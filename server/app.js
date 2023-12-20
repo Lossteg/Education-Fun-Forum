@@ -1,6 +1,7 @@
 require("dotenv").config();
 const express = require("express");
 const Database = require("./config/database");
+const search = require("./controllers/search.controller");
 
 const app = express();
 
@@ -35,6 +36,8 @@ require("./config/passport.js");
 app.get("/server-status", (req, res) => {
     res.status(200).json({ message: "Server is up and running!" });
   });
+
+  app.get("/search", decodeToken, search);
 
   process.on("SIGINT", async () => {
     try {
