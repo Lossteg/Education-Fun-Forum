@@ -6,6 +6,7 @@ const decodeToken = require("./middlewares/auth/decodeToken");
 const contextAuthRoutes = require("./routes/context-auth.route");
 const userRoutes = require("./routes/user.route");
 const postRoutes = require("./routes/post.route");
+const communityRoutes = require("./routes/community.route");
 
 const app = express();
 
@@ -45,6 +46,7 @@ app.get("/search", decodeToken, search);
 app.use("/auth", contextAuthRoutes);
 app.use("/users", userRoutes);
 app.use("/posts", postRoutes);
+app.use("/communities", communityRoutes);
 
 process.on("SIGINT", async () => {
 try {
