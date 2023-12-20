@@ -2,6 +2,8 @@ require("dotenv").config();
 const express = require("express");
 const Database = require("./config/database");
 const search = require("./controllers/search.controller");
+const decodeToken = require("./middlewares/auth/decodeToken");
+const contextAuthRoutes = require("./routes/context-auth.route");
 
 const app = express();
 
@@ -35,19 +37,20 @@ require("./config/passport.js");
 
 app.get("/server-status", (req, res) => {
     res.status(200).json({ message: "Server is up and running!" });
-  });
+});
 
-  app.get("/search", decodeToken, search);
+app.get("/search", decodeToken, search);
+app.use("/auth", contextAuthRoutes);
 
-  process.on("SIGINT", async () => {
-    try {
-      await db.disconnect();
-      console.log("Disconnected from database.");
-      process.exit(0);
-    } catch (err) {
-      console.error(err);
-      process.exit(1);
-    }
-  });
+process.on("SIGINT", async () => {
+try {
+    await db.disconnect();
+    console.log("Disconnected from database.");
+    process.exit(0);
+} catch (err) {
+    console.error(err);
+    process.exit(1);
+}
+});
 
-  app.listen(PORT, () => console.log(`Server up and running on port ${PORT}!`));
+app.listen(PORT, () => console.log(`Server up and running on port ${PORT}!`));
