@@ -12,3 +12,11 @@ const {
   getUser,
   updateInfo,
 } = require("../controllers/user.controller");
+
+const {
+    getPublicUsers,
+    followUser,
+    getPublicUser,
+    unfollowUser,
+    getFollowingUsers,
+  } = require("../controllers/profile.controller");
