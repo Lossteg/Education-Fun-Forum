@@ -24,3 +24,5 @@ const {
   commentValidator,
   validatorHandler,
 } = require("../middlewares/post/userInputValidator");
+
+const postConfirmation = require("../middlewares/post/postConfirmation");
