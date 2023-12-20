@@ -16,4 +16,10 @@ const {
 const {
     verifyEmailValidation,
     verifyEmail,
-  } = require("../middlewares/users/verifyEmail");
+} = require("../middlewares/users/verifyEmail");
+
+const {
+    verifyLoginValidation,
+    verifyLogin,
+    blockLogin,
+} = require("../middlewares/users/verifyLogin");
