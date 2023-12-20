@@ -35,3 +35,34 @@ const avatarUpload = require("../middlewares/users/avatarUpload");
 
 const decodeToken = require("../middlewares/auth/decodeToken");
 const requireAuth = passport.authenticate("jwt", { session: false }, null);
+
+router.get("/public-users/:id", requireAuth, decodeToken, getPublicUser);
+router.get("/public-users", requireAuth, decodeToken, getPublicUsers);
+router.get("/moderator", requireAuth, decodeToken, getModProfile);
+router.get("/following", requireAuth, decodeToken, getFollowingUsers);
+router.get("/:id", requireAuth, getUser);
+
+router.post(
+  "/signup",
+  avatarUpload,
+  addUserValidator,
+  addUserValidatorHandler,
+  addUser,
+  sendVerificationEmail
+);
+router.post("/refresh-token", refreshToken);
+router.post(
+  "/signin",
+  requestIp.mw(),
+  useragent.express(),
+  signin,
+  sendLoginVerificationEmail
+);
+router.post("/logout", logout);
+
+router.put("/:id", requireAuth, decodeToken, updateInfo);
+
+router.patch("/:id/follow", requireAuth, decodeToken, followUser);
+router.patch("/:id/unfollow", requireAuth, decodeToken, unfollowUser);
+
+module.exports = router;
