@@ -1,5 +1,6 @@
 require("dotenv").config();
 const express = require("express");
+const Database = require("./config/database");
 
 const app = express();
 
@@ -25,6 +26,11 @@ app.use(
   "/assets/userAvatars",
   express.static(__dirname + "/assets/userAvatars")
 );
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(passport.initialize());
+require("./config/passport.js");
 
 app.get("/server-status", (req, res) => {
     res.status(200).json({ message: "Server is up and running!" });
