@@ -8,6 +8,8 @@ import PrivateRoute from "./PrivateRoute";
 
 import SignIn from "./pages/SignIn";
 
+const AdminSignIn = lazy(() => import("./pages/AdminSignIn"));
+
 const App = () => {
   const userData = useSelector((state) => state.auth?.userData);
 
