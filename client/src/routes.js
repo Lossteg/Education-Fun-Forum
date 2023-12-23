@@ -3,11 +3,14 @@ import { lazy } from "react";
 import SignUp from "./pages/SignUp";
 import Home from "./pages/Home";
 import Post from "./pages/Post";
+import OwnPost from "./pages/OwnPost";
 import Profile from "./pages/Profile";
 
 const VerifyEmail = lazy(() => import("./pages/VerifyEmail"));
 const EmailVerifiedMessage = lazy(() => import("./pages/EmailVerifiedMessage"));
 const LoginVerified = lazy(() => import("./pages/LoginVerified"));
+const AccessDenied = lazy(() => import("./pages/AccessDenied"));
+const NotFound = lazy(() => import("./pages/NotFound"));
 
 export const privateRoutes = [
     {
@@ -21,6 +24,10 @@ export const privateRoutes = [
       {
         path: "/post/:postId",
         element: <Post />,
+      },
+      {
+        path: "/my/post/:postId",
+        element: <OwnPost />,
       },
       {
         path: "/profile",
@@ -44,5 +51,13 @@ export const publicRoutes = [
       {
         path: "/verify-login",
         element: <LoginVerified />,
+      },
+      {
+        path: "/access-denied",
+        element: <AccessDenied />,
+      },
+      {
+        path: "*",
+        element: <NotFound />,
       },
 ];
