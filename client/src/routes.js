@@ -17,6 +17,7 @@ const EmailVerifiedMessage = lazy(() => import("./pages/EmailVerifiedMessage"));
 const LoginVerified = lazy(() => import("./pages/LoginVerified"));
 const AccessDenied = lazy(() => import("./pages/AccessDenied"));
 const NotFound = lazy(() => import("./pages/NotFound"));
+const ReportedPost = lazy(() => import("./pages/ReportedPost"));
 
 export const privateRoutes = [
     {
@@ -46,6 +47,10 @@ export const privateRoutes = [
       {
         path: "/community/:communityName",
         element: <CommunityHome />,
+      },
+      {
+        path: "/community/:communityName/reported-post",
+        element: <ReportedPost />,
       },
       {
         path: "/communities",
