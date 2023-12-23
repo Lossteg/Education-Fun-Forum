@@ -6,6 +6,8 @@ import Post from "./pages/Post";
 import OwnPost from "./pages/OwnPost";
 import Profile from "./pages/Profile";
 import PublicProfile from "./pages/PublicProfile";
+import Following from "./pages/Following";
+import Saved from "./pages/Saved";
 import CommunityHome from "./pages/CommunityHome";
 import AllCommunities from "./pages/AllCommunities";
 import MyCommunities from "./pages/MyCommunities";
@@ -52,6 +54,14 @@ export const privateRoutes = [
       {
         path: "/my-communities",
         element: <MyCommunities />,
+      },
+      {
+        path: "/saved",
+        element: <Saved />,
+      },
+      {
+        path: "/following",
+        element: <Following />,
       },
 ];
 
