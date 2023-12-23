@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { reportPostAction } from "../../redux/actions/communityActions";
 import { useDispatch } from "react-redux";
 
 import { Dialog } from "@headlessui/react";
@@ -18,6 +19,14 @@ const ReportPostModal = ({
   const handleReportSubmit = async () => {
     setIsLoading(true);
     try {
+      await dispatch(
+        reportPostAction({
+          postId,
+          reportReason,
+          communityId,
+        })
+      );
+      setIsLoading(false);
       setReportedPost(true);
       onClose();
     } catch (error) {

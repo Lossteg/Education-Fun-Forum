@@ -5,6 +5,7 @@ import Home from "./pages/Home";
 import Post from "./pages/Post";
 import OwnPost from "./pages/OwnPost";
 import Profile from "./pages/Profile";
+import PublicProfile from "./pages/PublicProfile";
 import CommunityHome from "./pages/CommunityHome";
 import AllCommunities from "./pages/AllCommunities";
 import MyCommunities from "./pages/MyCommunities";
@@ -35,6 +36,10 @@ export const privateRoutes = [
       {
         path: "/profile",
         element: <Profile />,
+      },
+      {
+        path: "/user/:userId",
+        element: <PublicProfile />,
       },
       {
         path: "/community/:communityName",

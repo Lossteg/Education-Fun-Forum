@@ -1,4 +1,8 @@
 import * as types from "../constants/authConstants";
+import {
+  GET_COMMUNITY_SUCCESS,
+  GET_COMMUNITY_FAIL,
+} from "../constants/communityConstants";
 
 const initialState = {
   userData: null,
@@ -99,6 +103,22 @@ const authReducer = (state = initialState, action) => {
         successMessage: null,
         isModeratorOfThisCommunity: false,
       };
+
+    case GET_COMMUNITY_SUCCESS:
+      const moderators = payload ? payload.moderators : [];
+      const isModeratorOfThisCommunity = moderators.some(
+        (moderator) => moderator === state.userData?._id
+      );
+      return {
+        ...state,
+        isModeratorOfThisCommunity,
+      };
+
+    case GET_COMMUNITY_FAIL:
+      return {
+        ...state,
+        isModeratorOfThisCommunity: false,
+      };  
 
     case types.GET_CONTEXT_AUTH_DATA_SUCCESS:
       return {
