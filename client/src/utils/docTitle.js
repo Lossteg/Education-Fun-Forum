@@ -3,6 +3,7 @@ const titleMap = {
     "/home": "Posts Feed",
     "/signin": "Sign In",
     "/signup": "Sign Up",
+    "/profile": "User Profile",
   };
   /**
    * Returns the title of a page based on its route path.

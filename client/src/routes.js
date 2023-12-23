@@ -3,6 +3,7 @@ import { lazy } from "react";
 import SignUp from "./pages/SignUp";
 import Home from "./pages/Home";
 import Post from "./pages/Post";
+import Profile from "./pages/Profile";
 
 const VerifyEmail = lazy(() => import("./pages/VerifyEmail"));
 const EmailVerifiedMessage = lazy(() => import("./pages/EmailVerifiedMessage"));
@@ -20,6 +21,10 @@ export const privateRoutes = [
       {
         path: "/post/:postId",
         element: <Post />,
+      },
+      {
+        path: "/profile",
+        element: <Profile />,
       },
 ];
 
