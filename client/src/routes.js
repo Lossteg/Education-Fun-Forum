@@ -6,6 +6,8 @@ import Post from "./pages/Post";
 import OwnPost from "./pages/OwnPost";
 import Profile from "./pages/Profile";
 import CommunityHome from "./pages/CommunityHome";
+import AllCommunities from "./pages/AllCommunities";
+import MyCommunities from "./pages/MyCommunities";
 
 const VerifyEmail = lazy(() => import("./pages/VerifyEmail"));
 const EmailVerifiedMessage = lazy(() => import("./pages/EmailVerifiedMessage"));
@@ -37,6 +39,14 @@ export const privateRoutes = [
       {
         path: "/community/:communityName",
         element: <CommunityHome />,
+      },
+      {
+        path: "/communities",
+        element: <AllCommunities />,
+      },
+      {
+        path: "/my-communities",
+        element: <MyCommunities />,
       },
 ];
 
