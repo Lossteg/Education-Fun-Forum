@@ -18,6 +18,7 @@ const LoginVerified = lazy(() => import("./pages/LoginVerified"));
 const AccessDenied = lazy(() => import("./pages/AccessDenied"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 const ReportedPost = lazy(() => import("./pages/ReportedPost"));
+const Moderator = lazy(() => import("./pages/Moderator"));
 
 export const privateRoutes = [
     {
@@ -51,6 +52,10 @@ export const privateRoutes = [
       {
         path: "/community/:communityName/reported-post",
         element: <ReportedPost />,
+      },
+      {
+        path: "/community/:communityName/moderator",
+        element: <Moderator />,
       },
       {
         path: "/communities",
