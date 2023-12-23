@@ -1,5 +1,6 @@
 const titleMap = {
     "/": "Posts Feed",
+    "/home": "Posts Feed",
     "/signin": "Sign In",
     "/signup": "Sign Up",
   };
