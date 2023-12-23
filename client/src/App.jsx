@@ -28,6 +28,13 @@ const App = () => {
           path="/signin"
           element={userData ? <Navigate to="/" /> : <SignIn />}
         />
+
+        <Route
+          path="/admin/signin"
+          element={
+            adminAccessToken ? <Navigate to="/admin" /> : <AdminSignIn />
+          }
+        />
       </Routes>
     </Suspense>
   );
