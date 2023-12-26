@@ -36,7 +36,7 @@ const Leftbar = ({ showLeftbar }) => {
 
   return (
     <div className={`${showLeftbar ? "" : "hidden"} leftbar`}>
-      <div className="flex flex-col justify-start items-center">
+      <div className="flex flex-col justify-start items-center z-10">
         <div className="flex flex-col items-start gap-4 w-full p-5">
           <Link
             className="flex items-center gap-2 text-lg font-medium hover:text-primary"
